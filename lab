@@ -1,0 +1,4 @@
+#!/bin/bash
+ifconfig eth0 10.71.3.25 broadcast 10.71.255.255 netmask 255.255.0.0
+route add default gw 10.71.1.1
+echo -e "search cs.westminster.edu\nnameserver 10.1.50.2" > /etc/resolv.conf

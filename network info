@@ -1,0 +1,15 @@
+etwork={
+        ssid="WC-Secure"
+        priority=1
+        proto=RSN
+        key_mgmt=WPA-EAP
+        pairwise=CCMP
+        auth_alg=OPEN
+        eag=PEAP
+        identity="signap22"
+        password="Cowpump#~0800"
+        phase1="peaplabel=0"
+        phase2="auth=MSCHAPV2"
+}
+
+

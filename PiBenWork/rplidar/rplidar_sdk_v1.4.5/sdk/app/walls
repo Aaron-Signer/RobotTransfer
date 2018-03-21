@@ -1,0 +1,60 @@
+//
+//  main.cpp
+//  Lines
+//
+//  Created by Ben Shaffer on 3/14/15.
+//  Copyright (c) 2015 Ben Shaffer. All rights reserved.
+//
+
+#include <iostream>
+#include <string>
+#include "point.h"
+#include "line.h"
+
+using namespace std;
+
+int main(int argc, const char * argv[]) {
+    
+    line l;
+    string fileName = "enteringRoomTwo";
+    vector<line> walls;
+    vector<point> file;
+    file=readFromFile(fileName+".dat");
+    //file = filter(file);
+    writeXY(fileName+"XY.dat", file);
+    l=findLine(file);
+    walls=findLines(file);
+    walls=mergeLines(walls);
+    writeXY("oneLine.dat", l.points);
+   // cout<< file.size()<<endl;
+  //  cout<< file[0].r<<endl;
+    cout<< walls.size()<<endl;
+    writeWalls(fileName+"Walls.dat", walls);
+    
+    return 0;
+}
+
+
+void test(){
+    point p1, p2, p3, p4, p5, p6, p0;
+    line l;
+    p0.r=0;
+    p0.theta=0;
+    p1.r=1;
+    p1.theta=0;
+    p2.r=1;
+    p2.theta=180;
+    p3.r=5;
+    p3.theta=45;
+    l= makeLine(p1,p2);
+    cout<< distanceToPoint(l, p3)<<endl;
+    accumulate(l, p3);
+    cout<< l.points.size()<<endl;
+    p4=makePoint(-5, 10);
+    p5=makePoint(10, 10);
+    p6=subtractPoints(p4, p5);
+    cout<<getX(p6)<< " " << getY(p6)<< endl<<endl;
+    l=makeLine(p4, p5);
+    double dist= distancePointToSegment(l, p0);
+    cout<< dist << endl;
+}
